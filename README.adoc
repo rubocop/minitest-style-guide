@@ -51,6 +51,32 @@ gem install rouge
 Per the comment above, this guide is a work in progress - some rules are simply lacking thorough examples, but some things in the Minitest world change week by week or month by month.
 With that said, as the standard changes this guide is meant to be able to change with it.
 
+== Layout
+
+=== Empty Line after test case[[empty-line-after-test-case]]
+
+Add empty lines after each test methods. It make the code more readable.
+
+[source,ruby]
+----
+# bad
+def test_organization_title_is_rubocop
+  assert_equal "rubocop", organization.title
+end
+def test_organization_email
+  assert_equal "rubocop@example.com", organization.email
+end
+
+# good
+def test_organization_title_is_rubocop
+  assert_equal "rubocop", organization.title
+end
+
+def test_organization_email
+  assert_equal "rubocop@example.com", organization.email
+end
+----
+
 == Contributing
 
 The guide is still a work in progress - some guidelines are lacking examples, some guidelines don't have examples that illustrate them clearly enough.
