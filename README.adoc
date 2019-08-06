@@ -46,11 +46,6 @@ gem install rouge
 ----
 ====
 
-== A Living Document
-
-Per the comment above, this guide is a work in progress - some rules are simply lacking thorough examples, but some things in the Minitest world change week by week or month by month.
-With that said, as the standard changes this guide is meant to be able to change with it.
-
 == Layout
 
 === Empty Line after test case[[empty-line-after-test-case]]
