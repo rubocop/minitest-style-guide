@@ -1,0 +1,83 @@
+= The Minitest Style Guide
+:idprefix:
+:idseparator: -
+:sectanchors:
+:sectlinks:
+:toc: preamble
+:toclevels: 1
+ifndef::backend-pdf[]
+:toc-title: pass:[<h2>Table of Contents</h2>]
+endif::[]
+:source-highlighter: rouge
+
+== Introduction
+
+[quote, Officer Alex J. Murphy / RoboCop]
+____
+Role models are important.
+____
+
+ifdef::env-github[]
+TIP: You can find a beautiful version of this guide with much improved navigation at https://minitest.rubystyle.guide.
+endif::[]
+
+This Minitest style guide outlines the recommended best practices for real-world programmers to write code that can be maintained by other real-world programmers.
+
+https://github.com/rubocop-hq/rubocop[RuboCop], a static code analyzer (linter) and formatter, has a https://github.com/rubocop-hq/rubocop-minitest[`rubocop-minitest`] extension, provides a way to enforce the rules outlined in this guide.
+
+You can generate a PDF copy of this guide using https://asciidoctor.org/docs/asciidoctor-pdf/[AsciiDoctor PDF], and an HTML copy https://asciidoctor.org/docs/convert-documents/#converting-a-document-to-html[with] https://asciidoctor.org/#installation[AsciiDoctor] using the following commands:
+
+[source,shell]
+----
+# Generates README.pdf
+asciidoctor-pdf -a allow-uri-read README.adoc
+
+# Generates README.html
+asciidoctor
+----
+
+[TIP]
+====
+Install the `rouge` gem to get nice syntax highlighting in the generated document.
+
+[source,shell]
+----
+gem install rouge
+----
+====
+
+== Contributing
+
+The guide is still a work in progress - some guidelines are lacking examples, some guidelines don't have examples that illustrate them clearly enough.
+Improving such guidelines is a great (and simple way) to help the Ruby community!
+
+In due time these issues will (hopefully) be addressed - just keep them in mind for now.
+
+Nothing written in this guide is set in stone.
+It's our desire to work together with everyone interested in Ruby coding style, so that we could ultimately create a resource that will be beneficial to the entire Ruby community.
+
+Feel free to open tickets or send pull requests with improvements.
+Thanks in advance for your help!
+
+You can also support the project (and RuboCop) with financial contributions via https://www.patreon.com/bbatsov[Patreon].
+
+=== How to Contribute?
+
+It's easy, just follow the contribution guidelines below:
+
+* https://help.github.com/articles/fork-a-repo[Fork] https://github.com/rubocop-hq/minitest-style-guide[rubocop-hq/minitest-style-guide] on GitHub
+* Make your feature addition or bug fix in a feature branch.
+* Include a http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html[good description] of your changes
+* Push your feature branch to GitHub
+* Send a https://help.github.com/articles/using-pull-requests[Pull Request]
+
+== License
+
+image:https://i.creativecommons.org/l/by/3.0/88x31.png[Creative Commons License] This work is licensed under a http://creativecommons.org/licenses/by/3.0/deed.en_US[Creative Commons Attribution 3.0 Unported License]
+
+== Spread the Word
+
+A community-driven style guide is of little use to a community that doesn't know about its existence.
+Tweet about the guide, share it with your friends and colleagues.
+Every comment, suggestion or opinion we get makes the guide just a little bit better.
+And we want to have the best possible guide, don't we?
