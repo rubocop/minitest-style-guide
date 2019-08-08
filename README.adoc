@@ -46,6 +46,21 @@ gem install rouge
 ----
 ====
 
+== Assertion
+
+=== Assert Nil [[assert-nil]]
+
+Use `assert_nil` if expecting `nil`.
+
+[source,ruby]
+----
+# bad
+assert_equal(nil, actual)
+
+# good
+assert_nil(actual)
+----
+
 == Contributing
 
 The guide is still a work in progress - some guidelines are lacking examples, some guidelines don't have examples that illustrate them clearly enough.
