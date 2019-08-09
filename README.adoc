@@ -61,6 +61,20 @@ assert_equal(nil, actual)
 assert_nil(actual)
 ----
 
+=== Assert Equal Arguments Order[[assert-equal-args-order]]
+
+`assert_equal` should always have expected value as first argument because if the assertion fails the
+error message would say expected "rubocop-minitest" received "rubocop" not the other way around.
+
+[source,ruby]
+----
+# bad
+assert_equal(actual, "rubocop-minitest")
+
+# good
+assert_equal("rubocop-minitest", actual)
+----
+
 == Contributing
 
 The guide is still a work in progress - some guidelines are lacking examples, some guidelines don't have examples that illustrate them clearly enough.
