@@ -110,10 +110,24 @@ Use `assert_includes` to assert if the actual value is included in the collectio
 
 [source,ruby]
 ----
+# bad
 assert(collection.includes?(actual))
 
 # good
 assert_includes(collection, actual)
+----
+
+=== Assert In Delta [[assert-in-delta]]
+
+Use `assert_in_delta` if expecting `floats`.
+
+[source,ruby]
+----
+# bad
+assert_equal(Math::PI, actual)
+
+# good
+assert_in_delta(Math::PI, actual, 0.01)
 ----
 
 == Contributing
