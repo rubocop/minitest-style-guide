@@ -88,6 +88,18 @@ assert_equal(true, actual)
 assert(actual)
 ----
 
+=== Assert Includes [[assert-includes]]
+
+Use `assert-includes` to assert if the actual value is included in the collection.
+
+[source,ruby]
+----
+assert(collection.includes?(actual))
+
+# good
+assert_includes(collection, actual)
+----
+
 == Contributing
 
 The guide is still a work in progress - some guidelines are lacking examples, some guidelines don't have examples that illustrate them clearly enough.
