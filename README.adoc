@@ -77,7 +77,7 @@ assert_equal("rubocop-minitest", actual)
 
 === Assert Truthy [[assert-truthy]]
 
-Use `assert` if expecting `true` value instead of `assert_equal`.
+Use `assert` if expecting truthy value.
 
 [source,ruby]
 ----
