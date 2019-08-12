@@ -61,6 +61,20 @@ assert_equal(nil, actual)
 assert_nil(actual)
 ----
 
+=== Assert Not Nil [[refute-nil]]
+
+Use `refute_nil` or `assert_not_nil` if not expecting `nil`. `assert_not_nil` is a alias to `refute_nil` which is only available in Rails projects.
+
+[source,ruby]
+----
+# bad
+assert(actual.nil?)
+
+# good
+refute_nil(actual)
+assert_not_nil(actual)
+----
+
 === Assert Equal Arguments Order[[assert-equal-args-order]]
 
 `assert_equal` should always have expected value as first argument because if the assertion fails the
