@@ -90,7 +90,7 @@ assert(actual)
 
 === Assert Includes [[assert-includes]]
 
-Use `assert-includes` to assert if the actual value is included in the collection.
+Use `assert_includes` to assert if the actual value is included in the collection.
 
 [source,ruby]
 ----
