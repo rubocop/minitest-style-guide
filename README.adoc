@@ -88,6 +88,22 @@ assert_equal(true, actual)
 assert(actual)
 ----
 
+=== Refute false [[refute-false]]
+
+Use `refute` if expecting false.
+
+[source,ruby]
+----
+# bad
+assert_equal(false, actual)
+
+# bad
+assert(!something)
+
+# good
+refute(actual)
+----
+
 === Assert Includes [[assert-includes]]
 
 Use `assert-includes` to assert if the actual value is included in the collection.
