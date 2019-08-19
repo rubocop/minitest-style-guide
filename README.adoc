@@ -88,6 +88,20 @@ assert_equal(actual, "rubocop-minitest")
 assert_equal("rubocop-minitest", actual)
 ----
 
+=== Refute Equal[[refute-equal]]
+
+Use `refute_equal` if `expected` and `actual` should not be same.
+
+[source,ruby]
+----
+# bad
+assert(!"rubocop-minitest".eql?(actual))
+assert("rubocop-minitest" != actual)
+
+# good
+refute_equal("rubocop-minitest", actual)
+----
+
 === Assert Truthy [[assert-truthy]]
 
 Use `assert` if expecting truthy value.
