@@ -130,6 +130,19 @@ assert(collection.includes?(actual))
 assert_includes(collection, actual)
 ----
 
+=== Refute Includes [[refute-includes]]
+
+Use `refute_includes` if the actual value is not included in the collection.
+
+[source,ruby]
+----
+#bad
+refute(collection.includes?(actual))
+
+# good
+refute_includes(collection, actual)
+----
+
 === Assert In Delta [[assert-in-delta]]
 
 Use `assert_in_delta` if expecting `floats`.
