@@ -136,8 +136,9 @@ Use `refute_includes` if the actual value is not included in the collection.
 
 [source,ruby]
 ----
-#bad
+# bad
 refute(collection.includes?(actual))
+assert(!collection.includes?(actual))
 
 # good
 refute_includes(collection, actual)
