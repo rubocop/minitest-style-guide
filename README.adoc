@@ -68,7 +68,8 @@ Use `refute_nil` if not expecting `nil`.
 [source,ruby]
 ----
 # bad
-assert(actual.nil?)
+assert(!actual.nil?)
+refute(actual.nil?)
 
 # good
 refute_nil(actual)
