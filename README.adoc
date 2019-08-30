@@ -172,6 +172,33 @@ assert_equal(Math::PI, actual)
 assert_in_delta(Math::PI, actual, 0.01)
 ----
 
+=== Assert Empty [[assert-empty]]
+
+Use `assert_empty` if expecting actual object to be empty.
+
+[source,ruby]
+----
+# bad
+assert(actual.empty?)
+
+# good
+assert_empty(actual)
+----
+
+=== Refute Empty [[refute-empty]]
+
+Use `refute_empty` if expecting actual object to be not empty.
+
+[source,ruby]
+----
+# bad
+assert(!actual.empty?)
+refute(actual.empty?)
+
+# good
+refute_empty(actual)
+----
+
 == Contributing
 
 The guide is still a work in progress - some guidelines are lacking examples, some guidelines don't have examples that illustrate them clearly enough.
