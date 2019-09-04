@@ -161,7 +161,7 @@ refute_includes(collection, actual)
 
 === Assert In Delta [[assert-in-delta]]
 
-Use `assert_in_delta` if expecting `floats`.
+Use `assert_in_delta` if comparing `floats`. Assertion passes if the expected value is within the `delta` of `actual` value.
 
 [source,ruby]
 ----
@@ -170,6 +170,19 @@ assert_equal(Math::PI, actual)
 
 # good
 assert_in_delta(Math::PI, actual, 0.01)
+----
+
+=== Refute In Delta [[refute-in-delta]]
+
+Use `refute_in_delta` if comparing `floats`. Assertion passes if the expected value is NOT within the `delta` of `actual` value.
+
+[source,ruby]
+----
+# bad
+refute_equal(Math::PI, actual)
+
+# good
+refute_in_delta(Math::PI, actual, 0.01)
 ----
 
 === Assert Empty [[assert-empty]]
