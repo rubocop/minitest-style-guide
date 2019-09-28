@@ -139,7 +139,7 @@ Use `assert_includes` to assert if the actual value is included in the collectio
 [source,ruby]
 ----
 # bad
-assert(collection.includes?(actual))
+assert(collection.include?(actual))
 
 # good
 assert_includes(collection, actual)
@@ -152,8 +152,8 @@ Use `refute_includes` if the actual value is not included in the collection.
 [source,ruby]
 ----
 # bad
-refute(collection.includes?(actual))
-assert(!collection.includes?(actual))
+refute(collection.include?(actual))
+assert(!collection.include?(actual))
 
 # good
 refute_includes(collection, actual)
