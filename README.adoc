@@ -212,6 +212,33 @@ refute(actual.empty?)
 refute_empty(actual)
 ----
 
+=== Assert Operator [[assert-operator]]
+
+Use `assert_operator` if comparing expected and actual object using operator.
+
+[source,ruby]
+----
+# bad
+assert(expected < actual)
+
+# good
+assert_operator(expected, :<, actual)
+----
+
+=== Refute Operator [[refute-operator]]
+
+Use `refute_operator` if expecting expected object is not binary operator of the actual object. Assertion passes if the expected object is not binary operator(example: greater than) the actual object.
+
+[source,ruby]
+----
+# bad
+assert(!(expected > actual))
+refute(expected > actual)
+
+# good
+refute_operator(expected, :>, actual)
+----
+
 == Contributing
 
 The guide is still a work in progress - some guidelines are lacking examples, some guidelines don't have examples that illustrate them clearly enough.
