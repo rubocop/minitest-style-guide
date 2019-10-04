@@ -46,7 +46,18 @@ gem install rouge
 ----
 ====
 
-== Assertion
+== A Living Document
+
+This guide is a work in progress - existing guidelines are constantly being improved, new guidelines are added, occasionally some guidelines
+would get removed.
+
+== Layout
+
+This section discusses the idiomatic way to structure tests.
+
+== Assertions
+
+This section discusses idiomatic usage of the assertions provided by Minitest.
 
 === Assert Nil [[assert-nil]]
 
@@ -265,6 +276,12 @@ refute(pattern.match?(object))
 # good
 refute_match(pattern, object)
 ----
+
+== Related Guides
+
+* https://rubystyle.guide[Ruby Style Guide]
+* https://rails.rubystyle.guide[Rails Style Guide]
+* https://rspec.rubystyle.guide[RSpec Style Guide]
 
 == Contributing
 
