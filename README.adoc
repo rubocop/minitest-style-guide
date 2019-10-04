@@ -1,0 +1,303 @@
+= The Minitest Style Guide
+:idprefix:
+:idseparator: -
+:sectanchors:
+:sectlinks:
+:toc: preamble
+:toclevels: 1
+ifndef::backend-pdf[]
+:toc-title: pass:[<h2>Table of Contents</h2>]
+endif::[]
+:source-highlighter: rouge
+
+== Introduction
+
+[quote, Officer Alex J. Murphy / RoboCop]
+____
+Role models are important.
+____
+
+ifdef::env-github[]
+TIP: You can find a beautiful version of this guide with much improved navigation at https://minitest.rubystyle.guide.
+endif::[]
+
+This Minitest style guide outlines the recommended best practices for real-world programmers to write code that can be maintained by other real-world programmers.
+
+https://github.com/rubocop-hq/rubocop[RuboCop], a static code analyzer (linter) and formatter, has a https://github.com/rubocop-hq/rubocop-minitest[`rubocop-minitest`] extension, provides a way to enforce the rules outlined in this guide.
+
+You can generate a PDF copy of this guide using https://asciidoctor.org/docs/asciidoctor-pdf/[AsciiDoctor PDF], and an HTML copy https://asciidoctor.org/docs/convert-documents/#converting-a-document-to-html[with] https://asciidoctor.org/#installation[AsciiDoctor] using the following commands:
+
+[source,shell]
+----
+# Generates README.pdf
+asciidoctor-pdf -a allow-uri-read README.adoc
+
+# Generates README.html
+asciidoctor
+----
+
+[TIP]
+====
+Install the `rouge` gem to get nice syntax highlighting in the generated document.
+
+[source,shell]
+----
+gem install rouge
+----
+====
+
+== Assertion
+
+=== Assert Nil [[assert-nil]]
+
+Use `assert_nil` if expecting `nil`.
+
+[source,ruby]
+----
+# bad
+assert_equal(nil, actual)
+
+# good
+assert_nil(actual)
+----
+
+=== Refute Nil [[refute-nil]]
+
+Use `refute_nil` if not expecting `nil`.
+
+[source,ruby]
+----
+# bad
+assert(!actual.nil?)
+refute(actual.nil?)
+
+# good
+refute_nil(actual)
+----
+
+=== Assert Equal Arguments Order[[assert-equal-args-order]]
+
+`assert_equal` should always have expected value as first argument because if the assertion fails the
+error message would say expected "rubocop-minitest" received "rubocop" not the other way around.
+
+[source,ruby]
+----
+# bad
+assert_equal(actual, "rubocop-minitest")
+
+# good
+assert_equal("rubocop-minitest", actual)
+----
+
+=== Refute Equal[[refute-equal]]
+
+Use `refute_equal` if `expected` and `actual` should not be same.
+
+[source,ruby]
+----
+# bad
+assert(!"rubocop-minitest".eql?(actual))
+assert("rubocop-minitest" != actual)
+
+# good
+refute_equal("rubocop-minitest", actual)
+----
+
+=== Assert Truthy [[assert-truthy]]
+
+Use `assert` if expecting truthy value.
+
+[source,ruby]
+----
+# bad
+assert_equal(true, actual)
+
+# good
+assert(actual)
+----
+
+=== Refute false [[refute-false]]
+
+Use `refute` if expecting false.
+
+[source,ruby]
+----
+# bad
+assert_equal(false, actual)
+
+# bad
+assert(!something)
+
+# good
+refute(actual)
+----
+
+=== Assert Includes [[assert-includes]]
+
+Use `assert_includes` to assert if the actual value is included in the collection.
+
+[source,ruby]
+----
+# bad
+assert(collection.include?(actual))
+
+# good
+assert_includes(collection, actual)
+----
+
+=== Refute Includes [[refute-includes]]
+
+Use `refute_includes` if the actual value is not included in the collection.
+
+[source,ruby]
+----
+# bad
+refute(collection.include?(actual))
+assert(!collection.include?(actual))
+
+# good
+refute_includes(collection, actual)
+----
+
+=== Assert In Delta [[assert-in-delta]]
+
+Use `assert_in_delta` if comparing `floats`. Assertion passes if the expected value is within the `delta` of `actual` value.
+
+[source,ruby]
+----
+# bad
+assert_equal(Math::PI, actual)
+
+# good
+assert_in_delta(Math::PI, actual, 0.01)
+----
+
+=== Refute In Delta [[refute-in-delta]]
+
+Use `refute_in_delta` if comparing `floats`. Assertion passes if the expected value is NOT within the `delta` of `actual` value.
+
+[source,ruby]
+----
+# bad
+refute_equal(Math::PI, actual)
+
+# good
+refute_in_delta(Math::PI, actual, 0.01)
+----
+
+=== Assert Empty [[assert-empty]]
+
+Use `assert_empty` if expecting actual object to be empty.
+
+[source,ruby]
+----
+# bad
+assert(actual.empty?)
+
+# good
+assert_empty(actual)
+----
+
+=== Refute Empty [[refute-empty]]
+
+Use `refute_empty` if expecting actual object to be not empty.
+
+[source,ruby]
+----
+# bad
+assert(!actual.empty?)
+refute(actual.empty?)
+
+# good
+refute_empty(actual)
+----
+
+=== Assert Operator [[assert-operator]]
+
+Use `assert_operator` if comparing expected and actual object using operator.
+
+[source,ruby]
+----
+# bad
+assert(expected < actual)
+
+# good
+assert_operator(expected, :<, actual)
+----
+
+=== Refute Operator [[refute-operator]]
+
+Use `refute_operator` if expecting expected object is not binary operator of the actual object. Assertion passes if the expected object is not binary operator(example: greater than) the actual object.
+
+[source,ruby]
+----
+# bad
+assert(!(expected > actual))
+refute(expected > actual)
+
+# good
+refute_operator(expected, :>, actual)
+----
+
+=== Assert Match [[assert-match]]
+
+Use `assert_match` if expecting matcher regex to match actual object.
+
+[source,ruby]
+----
+# bad
+assert(pattern.match?(object))
+
+# good
+assert_match(pattern, object)
+----
+
+=== Refute Match [[refute-empty]]
+
+Use `refute_match` if expecting matcher regex to not match actual object.
+
+[source,ruby]
+----
+# bad
+assert(!pattern.match?(object))
+refute(pattern.match?(object))
+
+# good
+refute_match(pattern, object)
+----
+
+== Contributing
+
+The guide is still a work in progress - some guidelines are lacking examples, some guidelines don't have examples that illustrate them clearly enough.
+Improving such guidelines is a great (and simple way) to help the Ruby community!
+
+In due time these issues will (hopefully) be addressed - just keep them in mind for now.
+
+Nothing written in this guide is set in stone.
+It's our desire to work together with everyone interested in Ruby coding style, so that we could ultimately create a resource that will be beneficial to the entire Ruby community.
+
+Feel free to open tickets or send pull requests with improvements.
+Thanks in advance for your help!
+
+You can also support the project (and RuboCop) with financial contributions via https://www.patreon.com/bbatsov[Patreon].
+
+=== How to Contribute?
+
+It's easy, just follow the contribution guidelines below:
+
+* https://help.github.com/articles/fork-a-repo[Fork] https://github.com/rubocop-hq/minitest-style-guide[rubocop-hq/minitest-style-guide] on GitHub
+* Make your feature addition or bug fix in a feature branch.
+* Include a http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html[good description] of your changes
+* Push your feature branch to GitHub
+* Send a https://help.github.com/articles/using-pull-requests[Pull Request]
+
+== License
+
+image:https://i.creativecommons.org/l/by/3.0/88x31.png[Creative Commons License] This work is licensed under a http://creativecommons.org/licenses/by/3.0/deed.en_US[Creative Commons Attribution 3.0 Unported License]
+
+== Spread the Word
+
+A community-driven style guide is of little use to a community that doesn't know about its existence.
+Tweet about the guide, share it with your friends and colleagues.
+Every comment, suggestion or opinion we get makes the guide just a little bit better.
+And we want to have the best possible guide, don't we?
