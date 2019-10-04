@@ -443,7 +443,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle"><h2>Table of Contents</h2></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#assertion">Assertion</a>
+<li><a href="#a-living-document">A Living Document</a></li>
+<li><a href="#layout">Layout</a></li>
+<li><a href="#assertions">Assertions</a>
 <ul class="sectlevel2">
 <li><a href="#assert-nil">Assert Nil</a></li>
 <li><a href="#refute-nil">Refute Nil</a></li>
@@ -460,9 +462,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#assert-operator">Assert Operator</a></li>
 <li><a href="#refute-operator">Refute Operator</a></li>
 <li><a href="#assert-match">Assert Match</a></li>
-<li><a href="#refute-empty">Refute Match</a></li>
+<li><a href="#refute-match">Refute Match</a></li>
 </ul>
 </li>
+<li><a href="#related-guides">Related Guides</a></li>
 <li><a href="#contributing">Contributing</a>
 <ul class="sectlevel2">
 <li><a href="#how-to-contribute">How to Contribute?</a></li>
@@ -527,8 +530,28 @@ asciidoctor</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="assertion"><a class="anchor" href="#assertion"></a><a class="link" href="#assertion">Assertion</a></h2>
+<h2 id="a-living-document"><a class="anchor" href="#a-living-document"></a><a class="link" href="#a-living-document">A Living Document</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This guide is a work in progress - existing guidelines are constantly being improved, new guidelines are added, occasionally some guidelines
+would get removed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="layout"><a class="anchor" href="#layout"></a><a class="link" href="#layout">Layout</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section discusses the idiomatic way to structure tests.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="assertions"><a class="anchor" href="#assertions"></a><a class="link" href="#assertions">Assertions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section discusses idiomatic usage of the assertions provided by Minitest.</p>
+</div>
 <div class="sect2">
 <h3 id="assert-nil"><a class="anchor" href="#assert-nil"></a><a class="link" href="#assert-nil">Assert Nil</a></h3>
 <div class="paragraph">
@@ -764,7 +787,7 @@ error message would say expected "rubocop-minitest" received "rubocop" not the o
 </div>
 </div>
 <div class="sect2">
-<h3 id="refute-empty"><a class="anchor" href="#refute-empty"></a><a class="link" href="#refute-empty">Refute Match</a></h3>
+<h3 id="refute-match"><a class="anchor" href="#refute-match"></a><a class="link" href="#refute-match">Refute Match</a></h3>
 <div class="paragraph">
 <p>Use <code>refute_match</code> if expecting matcher regex to not match actual object.</p>
 </div>
@@ -778,6 +801,24 @@ error message would say expected "rubocop-minitest" received "rubocop" not the o
 <span class="n">refute_match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">object</span><span class="p">)</span></code></pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="related-guides"><a class="anchor" href="#related-guides"></a><a class="link" href="#related-guides">Related Guides</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://rubystyle.guide">Ruby Style Guide</a></p>
+</li>
+<li>
+<p><a href="https://rails.rubystyle.guide">Rails Style Guide</a></p>
+</li>
+<li>
+<p><a href="https://rspec.rubystyle.guide">RSpec Style Guide</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -851,7 +892,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-04 09:12:27 UTC
+Last updated 2019-10-04 16:37:14 UTC
 </div>
 </div>
 <style>
