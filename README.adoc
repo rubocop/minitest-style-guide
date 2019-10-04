@@ -239,6 +239,33 @@ refute(expected > actual)
 refute_operator(expected, :>, actual)
 ----
 
+=== Assert Match [[assert-match]]
+
+Use `assert_match` if expecting matcher regex to match actual object.
+
+[source,ruby]
+----
+# bad
+assert(pattern.match?(object))
+
+# good
+assert_match(pattern, object)
+----
+
+=== Refute Match [[refute-empty]]
+
+Use `refute_match` if expecting matcher regex to not match actual object.
+
+[source,ruby]
+----
+# bad
+assert(!pattern.match?(object))
+refute(pattern.match?(object))
+
+# good
+refute_match(pattern, object)
+----
+
 == Contributing
 
 The guide is still a work in progress - some guidelines are lacking examples, some guidelines don't have examples that illustrate them clearly enough.
