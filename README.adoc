@@ -263,7 +263,7 @@ assert(pattern.match?(object))
 assert_match(pattern, object)
 ----
 
-=== Refute Match [[refute-empty]]
+=== Refute Match [[refute-match]]
 
 Use `refute_match` if expecting matcher regex to not match actual object.
 
