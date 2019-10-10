@@ -607,8 +607,8 @@ error message would say expected "rubocop-minitest" received "rubocop" not the o
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
-<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="s2">"rubocop-minitest"</span><span class="p">.</span><span class="nf">eql?</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span>
 <span class="n">assert</span><span class="p">(</span><span class="s2">"rubocop-minitest"</span> <span class="o">!=</span> <span class="n">actual</span><span class="p">)</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="s2">"rubocop-minitest"</span> <span class="o">==</span> <span class="p">(</span><span class="n">actual</span><span class="p">))</span>
 
 <span class="c1"># good</span>
 <span class="n">refute_equal</span><span class="p">(</span><span class="s2">"rubocop-minitest"</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span></code></pre>
@@ -892,7 +892,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-10 16:45:02 UTC
+Last updated 2019-10-10 16:45:21 UTC
 </div>
 </div>
 <style>
