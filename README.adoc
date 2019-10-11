@@ -277,6 +277,33 @@ refute(pattern.match?(object))
 refute_match(pattern, object)
 ----
 
+=== Assert Responds To Method [[assert-respond-to]]
+
+Use `assert_respond_to` if expecting object to respond to a method.
+
+[source,ruby]
+----
+# bad
+assert(object.respond_to?(some_method))
+
+# good
+assert_respond_to(object, some_method)
+----
+
+=== Refute Responds To Method [[refute-respond-to]]
+
+Use `refute_respond_to` if expecting object to not respond to a method.
+
+[source,ruby]
+----
+# bad
+assert(!object.respond_to?(some_method))
+refute(object.respond_to?(some_method))
+
+# good
+refute_respond_to(object, some_method)
+----
+
 == Related Guides
 
 * https://rubystyle.guide[Ruby Style Guide]
