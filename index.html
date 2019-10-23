@@ -465,6 +465,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#refute-match">Refute Match</a></li>
 <li><a href="#assert-respond-to">Assert Responds To Method</a></li>
 <li><a href="#refute-respond-to">Refute Responds To Method</a></li>
+<li><a href="#assert-instance-of">Assert Instance Of</a></li>
+<li><a href="#refute-instance-of">Refute Instance Of</a></li>
 </ul>
 </li>
 <li><a href="#related-guides">Related Guides</a></li>
@@ -835,6 +837,34 @@ error message would say expected "rubocop-minitest" received "rubocop" not the o
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="assert-instance-of"><a class="anchor" href="#assert-instance-of"></a><a class="link" href="#assert-instance-of">Assert Instance Of</a></h3>
+<div class="paragraph">
+<p>Prefer <code>assert_instance_of(class, object)</code> over <code>assert(object.instance_of?(class))</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">assert</span><span class="p">(</span><span class="s1">'rubocop-minitest'</span><span class="p">.</span><span class="nf">instance_of?</span><span class="p">(</span><span class="no">String</span><span class="p">))</span>
+<span class="c1"># good</span>
+<span class="n">assert_instance_of</span><span class="p">(</span><span class="no">String</span><span class="p">,</span> <span class="s1">'rubocop-minitest'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="refute-instance-of"><a class="anchor" href="#refute-instance-of"></a><a class="link" href="#refute-instance-of">Refute Instance Of</a></h3>
+<div class="paragraph">
+<p>Prefer <code>refute_instance_of(class, object)</code> over <code>refute(object.instance_of?(class))</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">refute</span><span class="p">(</span><span class="s1">'rubocop-minitest'</span><span class="p">.</span><span class="nf">instance_of?</span><span class="p">(</span><span class="no">String</span><span class="p">))</span>
+<span class="c1"># good</span>
+<span class="n">refute_instance_of</span><span class="p">(</span><span class="no">String</span><span class="p">,</span> <span class="s1">'rubocop-minitest'</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -925,7 +955,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-10-11 10:45:07 UTC
+Last updated 2019-10-23 05:16:44 UTC
 </div>
 </div>
 <style>
