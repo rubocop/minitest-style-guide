@@ -304,6 +304,30 @@ refute(object.respond_to?(some_method))
 refute_respond_to(object, some_method)
 ----
 
+=== Assert Instance Of [[assert-instance-of]]
+
+Prefer `assert_instance_of(class, object)` over `assert(object.instance_of?(class))`.
+
+[source,ruby]
+----
+# bad
+assert('rubocop-minitest'.instance_of?(String))
+# good
+assert_instance_of(String, 'rubocop-minitest')
+----
+
+=== Refute Instance Of [[refute-instance-of]]
+
+Prefer `refute_instance_of(class, object)` over `refute(object.instance_of?(class))`.
+
+[source,ruby]
+----
+# bad
+refute('rubocop-minitest'.instance_of?(String))
+# good
+refute_instance_of(String, 'rubocop-minitest')
+----
+
 == Related Guides
 
 * https://rubystyle.guide[Ruby Style Guide]
