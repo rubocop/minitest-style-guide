@@ -223,6 +223,34 @@ refute(object.empty?)
 refute_empty(object)
 ----
 
+=== Assert Empty Literal [[assert-empty-literal]]
+
+Prefer using `assert_empty(object)` over `assert([], object)` or `assert({}, object)`.
+
+[source,ruby]
+----
+# bad
+assert([], object)
+assert({}, object)
+
+# good
+assert_empty(object)
+----
+
+=== Refute Empty Literal [[refute-empty-literal]]
+
+Prefer using `refute_empty(object)` over `refute([], object)` or `refute({}, object)`.
+
+[source,ruby]
+----
+# bad
+refute([], object)
+refute({}, object)
+
+# good
+refute_empty(object)
+----
+
 === Assert Operator [[assert-operator]]
 
 Use `assert_operator` if comparing expected and actual object using operator.
