@@ -352,6 +352,29 @@ refute('rubocop-minitest'.kind_of?(String))
 refute_kind_of(String, 'rubocop-minitest')
 ----
 
+== Expectations
+
+This section discusses idiomatic usage of the expectations provided by Minitest.
+
+=== Global Expectations [[global-expectations]]
+
+Use `_()` wrapper if using global expectations which are deprecated methods.
+
+[source,ruby]
+----
+# bad
+do_something.must_equal 2
+{ raise_exception }.must_raise TypeError
+
+# good
+_(do_something).must_equal 2
+value(do_something).must_equal 2
+expect(do_something).must_equal 2
+_ { raise_exception }.must_raise TypeError
+----
+
+Check the http://docs.seattlerb.org/minitest/Minitest/Expectations.html[Minitest::Expectations doc] for more information about its usage.
+
 == Related Guides
 
 * https://rubystyle.guide[Ruby Style Guide]
