@@ -471,6 +471,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#refute-kind-of">Refute Kind Of</a></li>
 </ul>
 </li>
+<li><a href="#expectations">Expectations</a>
+<ul class="sectlevel2">
+<li><a href="#global-expectations">Global Expectations</a></li>
+</ul>
+</li>
 <li><a href="#related-guides">Related Guides</a></li>
 <li><a href="#contributing">Contributing</a>
 <ul class="sectlevel2">
@@ -898,6 +903,36 @@ error message would say expected "rubocop-minitest" received "rubocop" not the o
 </div>
 </div>
 <div class="sect1">
+<h2 id="expectations"><a class="anchor" href="#expectations"></a><a class="link" href="#expectations">Expectations</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section discusses idiomatic usage of the expectations provided by Minitest.</p>
+</div>
+<div class="sect2">
+<h3 id="global-expectations"><a class="anchor" href="#global-expectations"></a><a class="link" href="#global-expectations">Global Expectations</a></h3>
+<div class="paragraph">
+<p>Use <code>_()</code> wrapper if using global expectations which are deprecated methods.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">do_something</span><span class="p">.</span><span class="nf">must_equal</span> <span class="mi">2</span>
+<span class="p">{</span> <span class="n">raise_exception</span> <span class="p">}.</span><span class="nf">must_raise</span> <span class="no">TypeError</span>
+
+<span class="c1"># good</span>
+<span class="n">_</span><span class="p">(</span><span class="n">do_something</span><span class="p">).</span><span class="nf">must_equal</span> <span class="mi">2</span>
+<span class="n">value</span><span class="p">(</span><span class="n">do_something</span><span class="p">).</span><span class="nf">must_equal</span> <span class="mi">2</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">do_something</span><span class="p">).</span><span class="nf">must_equal</span> <span class="mi">2</span>
+<span class="n">_</span> <span class="p">{</span> <span class="n">raise_exception</span> <span class="p">}.</span><span class="nf">must_raise</span> <span class="no">TypeError</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check the <a href="http://docs.seattlerb.org/minitest/Minitest/Expectations.html">Minitest::Expectations doc</a> for more information about its usage.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="related-guides"><a class="anchor" href="#related-guides"></a><a class="link" href="#related-guides">Related Guides</a></h2>
 <div class="sectionbody">
 <div class="ulist">
@@ -985,7 +1020,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-11-22 15:58:38 UTC
+Last updated 2020-06-12 16:31:03 UTC
 </div>
 </div>
 <style>
