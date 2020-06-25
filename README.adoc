@@ -55,6 +55,8 @@ would get removed.
 
 This section discusses the idiomatic way to structure tests.
 
+NOTE: This section is currently a stub. Contributions welcome!
+
 == Assertions
 
 This section discusses idiomatic usage of the assertions provided by Minitest.
@@ -402,6 +404,8 @@ refute_kind_of(String, 'rubocop-minitest')
 == Expectations
 
 This section discusses idiomatic usage of the expectations provided by Minitest.
+
+NOTE: This section is currently a stub. Contributions welcome!
 
 === Global Expectations [[global-expectations]]
 
