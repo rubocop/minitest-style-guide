@@ -250,6 +250,23 @@ refute(expected > actual)
 refute_operator(expected, :>, actual)
 ----
 
+=== Assert Output [[assert-output]]
+
+Use `assert_output` to assert the methods output. Assertion passes if the expected output or error are matched or equal to the standard output/error.
+The expected value can be a regex, string or nil.
+
+[source,ruby]
+----
+# bad
+$stdout = StringIO.new
+puts object.method
+$stdout.rewind
+assert_match expected, $stdout.read
+
+# good
+assert_output(expected) { puts object.method }
+----
+
 === Assert Match [[assert-match]]
 
 Use `assert_match` if expecting matcher regex to match actual object.
