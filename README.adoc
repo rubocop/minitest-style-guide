@@ -277,6 +277,36 @@ refute(pattern.match?(object))
 refute_match(pattern, object)
 ----
 
+=== Assert Predicate [[assert-predicate]]
+
+Use `assert_predicate` if expecting to test the predicate on the expected object and on applying predicate returns true.
+The benefit of using the `assert_predicate` over the `assert` or `assert_equal` is the user friendly
+error message when assertion fails.
+
+[source,ruby]
+----
+# bad
+assert expected.zero?     # => Expected false to be truthy
+assert_equal 0, expected  # => Expected: 0 Actual: 2
+
+# good
+assert_predicate expected, :zero? # => Expected 2 to be zero?.
+----
+
+=== Refute Predicate [[refute-predicate]]
+
+Use `refute_predicate` if expecting to test the predicate on the expected object and on applying predicate returns false.
+
+[source,ruby]
+----
+# bad
+assert(!expected.zero?)
+refute(expected.zero?)
+
+# good
+refute_predicate expected, :zero?
+----
+
 === Assert Responds To Method [[assert-respond-to]]
 
 Use `assert_respond_to` if expecting object to respond to a method.
