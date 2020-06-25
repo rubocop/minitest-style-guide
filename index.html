@@ -461,6 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#refute-empty">Refute Empty</a></li>
 <li><a href="#assert-operator">Assert Operator</a></li>
 <li><a href="#refute-operator">Refute Operator</a></li>
+<li><a href="#assert-output">Assert Output</a></li>
 <li><a href="#assert-match">Assert Match</a></li>
 <li><a href="#refute-match">Refute Match</a></li>
 <li><a href="#assert-predicate">Assert Predicate</a></li>
@@ -785,6 +786,25 @@ error message would say expected "rubocop-minitest" received "rubocop" not the o
 </div>
 </div>
 <div class="sect2">
+<h3 id="assert-output"><a class="anchor" href="#assert-output"></a><a class="link" href="#assert-output">Assert Output</a></h3>
+<div class="paragraph">
+<p>Use <code>assert_output</code> to assert the methods output. Assertion passes if the expected output or error are matched or equal to the standard output/error.
+The expected value can be a regex, string or nil.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+<span class="vg">$stdout</span> <span class="o">=</span> <span class="no">StringIO</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">puts</span> <span class="n">object</span><span class="p">.</span><span class="nf">method</span>
+<span class="vg">$stdout</span><span class="p">.</span><span class="nf">rewind</span>
+<span class="n">assert_match</span> <span class="n">expected</span><span class="p">,</span> <span class="vg">$stdout</span><span class="p">.</span><span class="nf">read</span>
+
+<span class="c1"># good</span>
+<span class="n">assert_output</span><span class="p">(</span><span class="n">expected</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="n">object</span><span class="p">.</span><span class="nf">method</span> <span class="p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="assert-match"><a class="anchor" href="#assert-match"></a><a class="link" href="#assert-match">Assert Match</a></h3>
 <div class="paragraph">
 <p>Use <code>assert_match</code> if expecting matcher regex to match actual object.</p>
@@ -1056,7 +1076,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-25 06:36:40 UTC
+Last updated 2020-06-25 06:37:20 UTC
 </div>
 </div>
 <style>
