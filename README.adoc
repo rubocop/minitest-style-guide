@@ -269,6 +269,33 @@ assert_match expected, $stdout.read
 assert_output(expected) { puts object.method }
 ----
 
+=== Assert Path Exists [[assert-path-exists]]
+
+Use `assert_path_exists` if expecting path to exist.
+
+[source,ruby]
+----
+# bad
+assert(File.exist?(path))
+
+# good
+assert_path_exists(path)
+----
+
+=== Refute Path Exists [[refute-path-exists]]
+
+Use `refute_path_exists` if expecting path to not exist.
+
+[source,ruby]
+----
+# bad
+assert(!File.exist?(path))
+refute(File.exist?(path))
+
+# good
+refute_path_exists(path)
+----
+
 === Assert Match [[assert-match]]
 
 Use `assert_match` if expecting matcher regex to match actual object.
