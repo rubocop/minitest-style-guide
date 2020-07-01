@@ -269,6 +269,19 @@ assert_match expected, $stdout.read
 assert_output(expected) { puts object.method }
 ----
 
+=== Assert Silent [[assert-silent]]
+
+Use `assert_silent` to assert that nothing was written to stdout and stderr.
+
+[source,ruby]
+----
+# bad
+assert_output('', '') { puts object.do_something }
+
+# good
+assert_silent { puts object.do_something }
+----
+
 === Assert Path Exists [[assert-path-exists]]
 
 Use `assert_path_exists` if expecting path to exist.
