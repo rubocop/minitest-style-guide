@@ -462,6 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#assert-operator">Assert Operator</a></li>
 <li><a href="#refute-operator">Refute Operator</a></li>
 <li><a href="#assert-output">Assert Output</a></li>
+<li><a href="#assert-silent">Assert Silent</a></li>
 <li><a href="#assert-path-exists">Assert Path Exists</a></li>
 <li><a href="#refute-path-exists">Refute Path Exists</a></li>
 <li><a href="#assert-match">Assert Match</a></li>
@@ -819,6 +820,21 @@ The expected value can be a regex, string or nil.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="assert-silent"><a class="anchor" href="#assert-silent"></a><a class="link" href="#assert-silent">Assert Silent</a></h3>
+<div class="paragraph">
+<p>Use <code>assert_silent</code> to assert that nothing was written to stdout and stderr.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">assert_output</span><span class="p">(</span><span class="s1">''</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span> <span class="p">{</span> <span class="nb">puts</span> <span class="n">object</span><span class="p">.</span><span class="nf">do_something</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="n">assert_silent</span> <span class="p">{</span> <span class="nb">puts</span> <span class="n">object</span><span class="p">.</span><span class="nf">do_something</span> <span class="p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="assert-path-exists"><a class="anchor" href="#assert-path-exists"></a><a class="link" href="#assert-path-exists">Assert Path Exists</a></h3>
 <div class="paragraph">
 <p>Use <code>assert_path_exists</code> if expecting path to exist.</p>
@@ -1133,7 +1149,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-01 01:28:54 UTC
+Last updated 2020-07-01 14:06:46 UTC
 </div>
 </div>
 <style>
