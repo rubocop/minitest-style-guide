@@ -441,6 +441,20 @@ refute('rubocop-minitest'.kind_of?(String))
 refute_kind_of(String, 'rubocop-minitest')
 ----
 
+=== Unspecified exception [[unspecified-exception]]
+
+Specify the exception being captured by `assert_raises`. This avoids false-positives
+when the raised exception is not the same users were expected.
+
+[source,ruby]
+----
+# bad
+assert_raises { do_something }
+
+# good
+assert_raises(FooException) { do_something }
+----
+
 == Expectations
 
 This section discusses idiomatic usage of the expectations provided by Minitest.
