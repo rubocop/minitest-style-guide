@@ -475,6 +475,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#refute-instance-of">Refute Instance Of</a></li>
 <li><a href="#assert-kind-of">Assert Kind Of</a></li>
 <li><a href="#refute-kind-of">Refute Kind Of</a></li>
+<li><a href="#unspecified-exception">Unspecified exception</a></li>
 </ul>
 </li>
 <li><a href="#expectations">Expectations</a>
@@ -1017,6 +1018,22 @@ error message when assertion fails.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="unspecified-exception"><a class="anchor" href="#unspecified-exception"></a><a class="link" href="#unspecified-exception">Unspecified exception</a></h3>
+<div class="paragraph">
+<p>Specify the exception being captured by <code>assert_raises</code>. This avoids false-positives
+when the raised exception is not the same users were expected.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">assert_raises</span> <span class="p">{</span> <span class="n">do_something</span> <span class="p">}</span>
+
+<span class="c1"># good</span>
+<span class="n">assert_raises</span><span class="p">(</span><span class="no">FooException</span><span class="p">)</span> <span class="p">{</span> <span class="n">do_something</span> <span class="p">}</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1149,7 +1166,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-01 14:06:46 UTC
+Last updated 2020-07-05 04:57:56 UTC
 </div>
 </div>
 <style>
