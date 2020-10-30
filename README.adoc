@@ -93,6 +93,8 @@ refute_nil(actual)
 `assert_equal` should always have expected value as first argument because if the assertion fails the
 error message would say expected "rubocop-minitest" received "rubocop" not the other way around.
 
+NOTE: If you're used to working with RSpec then this in the opposite order.
+
 [source,ruby]
 ----
 # bad
