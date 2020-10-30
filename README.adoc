@@ -480,6 +480,45 @@ _ { raise_exception }.must_raise TypeError
 
 Check the http://docs.seattlerb.org/minitest/Minitest/Expectations.html[Minitest::Expectations doc] for more information about its usage.
 
+=== Hooks [[hooks]]
+
+If using a module containing `setup` or `teardown` methods, be sure to call `super` in the test class `setup` or
+`teardown`.
+
+[source,ruby]
+----
+
+# bad
+
+class TestMeme < Minitest::Test
+  include MyHelper
+
+  def setup
+    do_something
+  end
+
+  def teardown
+    clean_something
+  end
+end
+
+# good
+
+class TestMeme < Minitest::Test
+  include MyHelper
+
+  def setup
+    super
+    do_something
+  end
+
+  def teardown
+    clean_something
+    super
+  end
+end
+----
+
 == Related Guides
 
 * https://rubystyle.guide[Ruby Style Guide]
