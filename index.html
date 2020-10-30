@@ -481,6 +481,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#expectations">Expectations</a>
 <ul class="sectlevel2">
 <li><a href="#global-expectations">Global Expectations</a></li>
+<li><a href="#hooks">Hooks</a></li>
 </ul>
 </li>
 <li><a href="#related-guides">Related Guides</a></li>
@@ -1076,6 +1077,46 @@ This section is currently a stub. Contributions welcome!
 <p>Check the <a href="http://docs.seattlerb.org/minitest/Minitest/Expectations.html">Minitest::Expectations doc</a> for more information about its usage.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="hooks"><a class="anchor" href="#hooks"></a><a class="link" href="#hooks">Hooks</a></h3>
+<div class="paragraph">
+<p>If using a module containing <code>setup</code> or <code>teardown</code> methods, be sure to call <code>super</code> in the test class <code>setup</code> or
+<code>teardown</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+
+<span class="k">class</span> <span class="nc">TestMeme</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
+  <span class="kp">include</span> <span class="no">MyHelper</span>
+
+  <span class="k">def</span> <span class="nf">setup</span>
+    <span class="n">do_something</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">teardown</span>
+    <span class="n">clean_something</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+
+<span class="k">class</span> <span class="nc">TestMeme</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
+  <span class="kp">include</span> <span class="no">MyHelper</span>
+
+  <span class="k">def</span> <span class="nf">setup</span>
+    <span class="k">super</span>
+    <span class="n">do_something</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">teardown</span>
+    <span class="n">clean_something</span>
+    <span class="k">super</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1166,7 +1207,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-05 04:57:56 UTC
+Last updated 2020-10-30 01:59:17 UTC
 </div>
 </div>
 <style>
