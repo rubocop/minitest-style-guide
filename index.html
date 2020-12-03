@@ -698,14 +698,7 @@ pre.rouge {
 </ul>
 </li>
 <li><a href="#file-naming">File Naming</a></li>
-<li><a href="#related-guides">Related Guides</a></li>
-<li><a href="#contributing">Contributing</a>
-<ul class="sectlevel2">
-<li><a href="#how-to-contribute">How to Contribute?</a></li>
-</ul>
-</li>
-<li><a href="#license">License</a></li>
-<li><a href="#spread-the-word">Spread the Word</a></li>
+<li><a href="#test-doubles">Test Doubles</a></li>
 </ul>
 </div>
 </div>
@@ -1357,94 +1350,84 @@ This section is currently a stub. Contributions welcome!
 </div>
 </div>
 <div class="sect1">
-<h2 id="related-guides"><a class="anchor" href="#related-guides"></a><a class="link" href="#related-guides">Related Guides</a></h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://rubystyle.guide">Ruby Style Guide</a></p>
-</li>
-<li>
-<p><a href="https://rails.rubystyle.guide">Rails Style Guide</a></p>
-</li>
-<li>
-<p><a href="https://rspec.rubystyle.guide">RSpec Style Guide</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contributing"><a class="anchor" href="#contributing"></a><a class="link" href="#contributing">Contributing</a></h2>
+<h2 id="test-doubles"><a class="anchor" href="#test-doubles"></a><a class="link" href="#test-doubles">Test Doubles</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The guide is still a work in progress - some guidelines are lacking examples, some guidelines don&#8217;t have examples that illustrate them clearly enough.
-Improving such guidelines is a great (and simple way) to help the Ruby community!</p>
+<p>Minitest includes <code>minitest/mock</code>, a simple mock/stub system.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="o">---</span>
+<span class="c1"># example</span></code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>In due time these issues will (hopefully) be addressed - just keep them in mind for now.</p>
+<p>service = Minitest::Mock.new
+service.expect(:execute, true)
+---</p>
 </div>
 <div class="paragraph">
-<p>Nothing written in this guide is set in stone.
-It&#8217;s our desire to work together with everyone interested in Ruby coding style, so that we could ultimately create a resource that will be beneficial to the entire Ruby community.</p>
+<p>A common alternative is <a href="https://github.com/freerange/mocha">Mocha</a>.</p>
 </div>
-<div class="paragraph">
-<p>Feel free to open tickets or send pull requests with improvements.
-Thanks in advance for your help!</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># example</span>
+
+<span class="n">service</span> <span class="o">=</span> <span class="n">mock</span>
+<span class="n">service</span><span class="p">.</span><span class="nf">expects</span><span class="p">(</span><span class="ss">:execute</span><span class="p">).</span><span class="nf">returns</span><span class="p">(</span><span class="kp">true</span><span class="p">)</span>
+<span class="o">---</span>
+
+<span class="no">Choose</span> <span class="n">only</span> <span class="n">one</span> <span class="n">to</span> <span class="n">use</span> <span class="err">–</span> <span class="n">avoid</span> <span class="n">mixing</span> <span class="n">both</span> <span class="n">approaches</span> <span class="n">within</span> <span class="n">one</span> <span class="n">project</span><span class="p">.</span>
+
+<span class="nf">=</span><span class="o">=</span> <span class="no">Related</span> <span class="no">Guides</span>
+
+<span class="o">*</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">rubystyle</span><span class="p">.</span><span class="nf">guide</span><span class="p">[</span><span class="no">Ruby</span> <span class="no">Style</span> <span class="no">Guide</span><span class="p">]</span>
+<span class="o">*</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">rails</span><span class="p">.</span><span class="nf">rubystyle</span><span class="p">.</span><span class="nf">guide</span><span class="p">[</span><span class="no">Rails</span> <span class="no">Style</span> <span class="no">Guide</span><span class="p">]</span>
+<span class="o">*</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">rspec</span><span class="p">.</span><span class="nf">rubystyle</span><span class="p">.</span><span class="nf">guide</span><span class="p">[</span><span class="no">RSpec</span> <span class="no">Style</span> <span class="no">Guide</span><span class="p">]</span>
+
+<span class="o">==</span> <span class="no">Contributing</span>
+
+<span class="no">The</span> <span class="n">guide</span> <span class="n">is</span> <span class="n">still</span> <span class="n">a</span> <span class="n">work</span> <span class="k">in</span> <span class="n">progress</span> <span class="o">-</span> <span class="n">some</span> <span class="n">guidelines</span> <span class="n">are</span> <span class="n">lacking</span> <span class="n">examples</span><span class="p">,</span> <span class="n">some</span> <span class="n">guidelines</span> <span class="n">don</span><span class="s1">'t have examples that illustrate them clearly enough.
+Improving such guidelines is a great (and simple way) to help the Ruby community!
+
+In due time these issues will (hopefully) be addressed - just keep them in mind for now.
+
+Nothing written in this guide is set in stone.
+It'</span><span class="n">s</span> <span class="n">our</span> <span class="n">desire</span> <span class="n">to</span> <span class="n">work</span> <span class="n">together</span> <span class="n">with</span> <span class="n">everyone</span> <span class="n">interested</span> <span class="k">in</span> <span class="no">Ruby</span> <span class="n">coding</span> <span class="n">style</span><span class="p">,</span> <span class="n">so</span> <span class="n">that</span> <span class="n">we</span> <span class="n">could</span> <span class="n">ultimately</span> <span class="n">create</span> <span class="n">a</span> <span class="n">resource</span> <span class="n">that</span> <span class="n">will</span> <span class="n">be</span> <span class="n">beneficial</span> <span class="n">to</span> <span class="n">the</span> <span class="n">entire</span> <span class="no">Ruby</span> <span class="n">community</span><span class="o">.</span>
+
+<span class="no">Feel</span> <span class="n">free</span> <span class="n">to</span> <span class="nb">open</span> <span class="n">tickets</span> <span class="n">or</span> <span class="nb">send</span> <span class="n">pull</span> <span class="n">requests</span> <span class="n">with</span> <span class="n">improvements</span><span class="o">.</span>
+<span class="no">Thanks</span> <span class="k">in</span> <span class="n">advance</span> <span class="k">for</span> <span class="n">your</span> <span class="n">help!</span>
+
+<span class="no">You</span> <span class="n">can</span> <span class="n">also</span> <span class="n">support</span> <span class="n">the</span> <span class="n">project</span> <span class="p">(</span><span class="n">and</span> <span class="no">RuboCop</span><span class="p">)</span> <span class="n">with</span> <span class="n">financial</span> <span class="n">contributions</span> <span class="n">via</span> <span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">www</span><span class="p">.</span><span class="nf">patreon</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">bbatsov</span><span class="p">[</span><span class="no">Patreon</span><span class="p">].</span>
+
+<span class="nf">=</span><span class="o">==</span> <span class="no">How</span> <span class="n">to</span> <span class="no">Contribute</span><span class="p">?</span>
+
+<span class="no">It</span><span class="s1">'s easy, just follow the contribution guidelines below:
+
+* https://help.github.com/articles/fork-a-repo[Fork] https://github.com/rubocop-hq/minitest-style-guide[rubocop-hq/minitest-style-guide] on GitHub
+* Make your feature addition or bug fix in a feature branch.
+* Include a http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html[good description] of your changes
+* Push your feature branch to GitHub
+* Send a https://help.github.com/articles/using-pull-requests[Pull Request]
+
+== License
+
+image:https://i.creativecommons.org/l/by/3.0/88x31.png[Creative Commons License] This work is licensed under a http://creativecommons.org/licenses/by/3.0/deed.en_US[Creative Commons Attribution 3.0 Unported License]
+
+== Spread the Word
+
+A community-driven style guide is of little use to a community that doesn'</span><span class="n">t</span> <span class="n">know</span> <span class="n">about</span> <span class="n">its</span> <span class="n">existence</span><span class="o">.</span>
+<span class="no">Tweet</span> <span class="n">about</span> <span class="n">the</span> <span class="n">guide</span><span class="p">,</span> <span class="n">share</span> <span class="n">it</span> <span class="n">with</span> <span class="n">your</span> <span class="n">friends</span> <span class="n">and</span> <span class="n">colleagues</span><span class="o">.</span>
+<span class="no">Every</span> <span class="n">comment</span><span class="p">,</span> <span class="n">suggestion</span> <span class="n">or</span> <span class="n">opinion</span> <span class="n">we</span> <span class="n">get</span> <span class="n">makes</span> <span class="n">the</span> <span class="n">guide</span> <span class="n">just</span> <span class="n">a</span> <span class="n">little</span> <span class="n">bit</span> <span class="n">better</span><span class="o">.</span>
+<span class="no">And</span> <span class="n">we</span> <span class="n">want</span> <span class="n">to</span> <span class="n">have</span> <span class="n">the</span> <span class="n">best</span> <span class="n">possible</span> <span class="n">guide</span><span class="p">,</span> <span class="n">don</span><span class="err">'</span><span class="n">t</span> <span class="n">we?</span></code></pre>
 </div>
-<div class="paragraph">
-<p>You can also support the project (and RuboCop) with financial contributions via <a href="https://www.patreon.com/bbatsov">Patreon</a>.</p>
-</div>
-<div class="sect2">
-<h3 id="how-to-contribute"><a class="anchor" href="#how-to-contribute"></a><a class="link" href="#how-to-contribute">How to Contribute?</a></h3>
-<div class="paragraph">
-<p>It&#8217;s easy, just follow the contribution guidelines below:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://help.github.com/articles/fork-a-repo">Fork</a> <a href="https://github.com/rubocop-hq/minitest-style-guide">rubocop-hq/minitest-style-guide</a> on GitHub</p>
-</li>
-<li>
-<p>Make your feature addition or bug fix in a feature branch.</p>
-</li>
-<li>
-<p>Include a <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">good description</a> of your changes</p>
-</li>
-<li>
-<p>Push your feature branch to GitHub</p>
-</li>
-<li>
-<p>Send a <a href="https://help.github.com/articles/using-pull-requests">Pull Request</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="license"><a class="anchor" href="#license"></a><a class="link" href="#license">License</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><span class="image"><img src="https://i.creativecommons.org/l/by/3.0/88x31.png" alt="Creative Commons License"></span> This work is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="spread-the-word"><a class="anchor" href="#spread-the-word"></a><a class="link" href="#spread-the-word">Spread the Word</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>A community-driven style guide is of little use to a community that doesn&#8217;t know about its existence.
-Tweet about the guide, share it with your friends and colleagues.
-Every comment, suggestion or opinion we get makes the guide just a little bit better.
-And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-11-30 14:14:55 UTC
+Last updated 2020-12-03 07:29:49 UTC
 </div>
 </div>
 </body>
