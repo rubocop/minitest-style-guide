@@ -23,7 +23,7 @@ endif::[]
 
 This Minitest style guide outlines the recommended best practices for real-world programmers to write code that can be maintained by other real-world programmers.
 
-https://github.com/rubocop-hq/rubocop[RuboCop], a static code analyzer (linter) and formatter, has a https://github.com/rubocop-hq/rubocop-minitest[`rubocop-minitest`] extension, provides a way to enforce the rules outlined in this guide.
+https://github.com/rubocop/rubocop[RuboCop], a static code analyzer (linter) and formatter, has a https://github.com/rubocop/rubocop-minitest[`rubocop-minitest`] extension, provides a way to enforce the rules outlined in this guide.
 
 You can generate a PDF copy of this guide using https://asciidoctor.org/docs/asciidoctor-pdf/[AsciiDoctor PDF], and an HTML copy https://asciidoctor.org/docs/convert-documents/#converting-a-document-to-html[with] https://asciidoctor.org/#installation[AsciiDoctor] using the following commands:
 
@@ -576,7 +576,7 @@ You can also support the project (and RuboCop) with financial contributions via 
 
 It's easy, just follow the contribution guidelines below:
 
-* https://help.github.com/articles/fork-a-repo[Fork] https://github.com/rubocop-hq/minitest-style-guide[rubocop-hq/minitest-style-guide] on GitHub
+* https://help.github.com/articles/fork-a-repo[Fork] https://github.com/rubocop/minitest-style-guide[rubocop/minitest-style-guide] on GitHub
 * Make your feature addition or bug fix in a feature branch.
 * Include a http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html[good description] of your changes
 * Push your feature branch to GitHub
