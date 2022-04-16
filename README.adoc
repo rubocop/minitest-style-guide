@@ -551,6 +551,32 @@ service.expects(:execute).returns(true)
 
 Choose only one to use – avoid mixing both approaches within one project.
 
+== Subclassing Test Cases
+
+Minitest uses Ruby classes, if a Minitest class inherits from another class, it will also inherit its methods 
+causing Minitest to run the parent's tests twice.
+
+[source,ruby]
+----
+# bad (unless multiple runs are the intended behavior)
+
+class ParentTest < Minitest::Test
+  def test_1
+    #... Run twice
+  end
+end
+
+class ChildTest < ParentTest
+  def test_2
+    #...
+  end
+end
+----
+
+In rare cases, we may want to run the tests twice, but in general avoid subclassing test cases.
+
+Note: The `minitest/spec` alternative syntax disable inheritance between test classes and so does not have this behavior.
+
 == Related Guides
 
 * https://rubystyle.guide[Ruby Style Guide]
