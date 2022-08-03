@@ -1,4 +1,4 @@
-= The Minitest Style Guide
+= Minitest Style Guide
 :idprefix:
 :idseparator: -
 :sectanchors:
