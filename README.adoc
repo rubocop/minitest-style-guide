@@ -527,6 +527,8 @@ Use a consistent naming pattern of either a `test_` prefix or a `_test` suffix f
 
 For a Rails app, follow the `_test` suffix convention, as used by the Rails generators.
 
+For a gem, follow the `test_` prefix convention, as used by the `bundle gem` generator.
+
 == Test Doubles
 
 Minitest includes `minitest/mock`, a simple mock/stub system.
@@ -553,7 +555,7 @@ Choose only one to use – avoid mixing both approaches within one project.
 
 == Subclassing Test Cases
 
-Minitest uses Ruby classes, if a Minitest class inherits from another class, it will also inherit its methods 
+Minitest uses Ruby classes, if a Minitest class inherits from another class, it will also inherit its methods
 causing Minitest to run the parent's tests twice.
 
 [source,ruby]
