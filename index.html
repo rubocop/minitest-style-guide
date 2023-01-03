@@ -662,6 +662,8 @@ pre.rouge {
 <li><a href="#refute-nil">Refute Nil</a></li>
 <li><a href="#assert-equal-arguments-order">Assert Equal Arguments Order</a></li>
 <li><a href="#refute-equal">Refute Equal</a></li>
+<li><a href="#assert-same">Assert Same</a></li>
+<li><a href="#refute-same">Refute Same</a></li>
 <li><a href="#assert-truthy">Assert Truthy</a></li>
 <li><a href="#refute-false">Refute false</a></li>
 <li><a href="#assert-includes">Assert Includes</a></li>
@@ -869,6 +871,61 @@ If you&#8217;re used to working with RSpec then this in the opposite order.
 
 <span class="c1"># good</span>
 <span class="n">refute_equal</span><span class="p">(</span><span class="s2">"rubocop-minitest"</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="assert-same"><a class="anchor" href="#assert-same"></a><a class="link" href="#assert-same">Assert Same</a></h3>
+<div class="paragraph">
+<p>Use <code>assert_same</code> instead of <code>assert</code> with <code>equal?</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Use <code>assert_same</code> only when there is a need to compare by identity. Otherwise, use <code>assert_equal</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">assert</span><span class="p">(</span><span class="n">expected</span><span class="p">.</span><span class="nf">equal?</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span>
+
+<span class="c1"># good</span>
+<span class="n">assert_same</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="refute-same"><a class="anchor" href="#refute-same"></a><a class="link" href="#refute-same">Refute Same</a></h3>
+<div class="paragraph">
+<p>Use <code>refute_same</code> instead of <code>refute</code> with <code>equal?</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Use <code>refute_same</code> only when there is a need to compare by identity. Otherwise, use <code>refute_equal</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+<span class="n">refute</span><span class="p">(</span><span class="n">expected</span><span class="p">.</span><span class="nf">equal?</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span>
+<span class="n">assert</span><span class="p">(</span><span class="o">!</span><span class="n">expected</span><span class="p">.</span><span class="nf">equal?</span><span class="p">(</span><span class="n">actual</span><span class="p">))</span>
+
+<span class="c1"># good</span>
+<span class="n">refute_same</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -1506,7 +1563,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2022-12-05 09:40:30 UTC
+Last updated 2023-01-03 17:08:43 UTC
 </div>
 </div>
 </body>
