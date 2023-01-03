@@ -118,6 +118,37 @@ assert(!"rubocop-minitest" == (actual))
 refute_equal("rubocop-minitest", actual)
 ----
 
+=== Assert Same [[assert-same]]
+
+Use `assert_same` instead of `assert` with `equal?`.
+
+NOTE: Use `assert_same` only when there is a need to compare by identity. Otherwise, use `assert_equal`.
+
+[source,ruby]
+----
+# bad
+assert(expected.equal?(actual))
+
+# good
+assert_same(expected, actual)
+----
+
+=== Refute Same [[refute-same]]
+
+Use `refute_same` instead of `refute` with `equal?`.
+
+NOTE: Use `refute_same` only when there is a need to compare by identity. Otherwise, use `refute_equal`.
+
+[source,ruby]
+----
+# bad
+refute(expected.equal?(actual))
+assert(!expected.equal?(actual))
+
+# good
+refute_same(expected, actual)
+----
+
 === Assert Truthy [[assert-truthy]]
 
 Use `assert` if expecting truthy value.
@@ -553,7 +584,7 @@ Choose only one to use – avoid mixing both approaches within one project.
 
 == Subclassing Test Cases
 
-Minitest uses Ruby classes, if a Minitest class inherits from another class, it will also inherit its methods 
+Minitest uses Ruby classes, if a Minitest class inherits from another class, it will also inherit its methods
 causing Minitest to run the parent's tests twice.
 
 [source,ruby]
