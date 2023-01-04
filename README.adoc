@@ -552,6 +552,28 @@ class TestMeme < Minitest::Test
 end
 ----
 
+=== Hooks Ordering [[hooks-ordering]]
+
+Order hooks in the order in which they will be executed.
+
+[source,ruby]
+----
+
+# bad
+
+class SomethingTest < Minitest::Test
+  def teardown; end
+  def setup; end
+end
+
+# good
+
+class SomethingTest < Minitest::Test
+  def setup; end
+  def teardown; end
+end
+----
+
 == File Naming [[file-naming]]
 
 Use a consistent naming pattern of either a `test_` prefix or a `_test` suffix for filenames of tests.
