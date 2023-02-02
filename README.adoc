@@ -574,6 +574,31 @@ class SomethingTest < Minitest::Test
 end
 ----
 
+=== Extension Hooks [[extension-hooks]]
+
+The `before_*` and `after_*` hooks are meant for libraries that extend minitest.
+They are not meant to be used by test developers.
+
+[source,ruby]
+----
+
+# bad
+
+class SomethingTest < Minitest::Test
+  def before_setup; end
+  def before_teardown; end
+  def after_setup; end
+  def after_teardown; end
+end
+
+# good
+
+class SomethingTest < Minitest::Test
+  def setup; end
+  def teardown; end
+end
+----
+
 == File Naming [[file-naming]]
 
 Use a consistent naming pattern of either a `test_` prefix or a `_test` suffix for filenames of tests.
