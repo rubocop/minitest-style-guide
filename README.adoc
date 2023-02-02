@@ -599,6 +599,28 @@ class SomethingTest < Minitest::Test
 end
 ----
 
+=== Skipping Runnable Methods [[skipping-runnable-methods]]
+
+Prefer `skip` over `return` for skipping runnable methods that start with `test_`.
+
+[source,ruby]
+----
+
+# bad
+
+def test_something
+  return if condition?
+  assert_equal(42, something)
+end
+
+# good
+
+def test_something
+  skip if condition?
+  assert_equal(42, something)
+end
+----
+
 == File Naming [[file-naming]]
 
 Use a consistent naming pattern of either a `test_` prefix or a `_test` suffix for filenames of tests.
