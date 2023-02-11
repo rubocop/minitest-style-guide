@@ -697,6 +697,7 @@ pre.rouge {
 <li><a href="#hooks">Hooks</a></li>
 <li><a href="#hooks-ordering">Hooks Ordering</a></li>
 <li><a href="#extension-hooks">Extension Hooks</a></li>
+<li><a href="#skipping-runnable-methods">Skipping Runnable Methods</a></li>
 </ul>
 </li>
 <li><a href="#file-naming">File Naming</a></li>
@@ -1451,6 +1452,29 @@ They are not meant to be used by test developers.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="skipping-runnable-methods"><a class="anchor" href="#skipping-runnable-methods"></a><a class="link" href="#skipping-runnable-methods">Skipping Runnable Methods</a></h3>
+<div class="paragraph">
+<p>Prefer <code>skip</code> over <code>return</code> for skipping runnable methods that start with <code>test_</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
+
+<span class="k">def</span> <span class="nf">test_something</span>
+  <span class="k">return</span> <span class="k">if</span> <span class="n">condition?</span>
+  <span class="n">assert_equal</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">something</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c1"># good</span>
+
+<span class="k">def</span> <span class="nf">test_something</span>
+  <span class="n">skip</span> <span class="k">if</span> <span class="n">condition?</span>
+  <span class="n">assert_equal</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">something</span><span class="p">)</span>
+<span class="k">end</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1617,7 +1641,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-02-03 17:07:00 UTC
+Last updated 2023-02-11 15:43:48 UTC
 </div>
 </div>
 </body>
