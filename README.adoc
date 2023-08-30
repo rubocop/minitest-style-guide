@@ -112,7 +112,6 @@ Use `refute_equal` if `expected` and `actual` should not be same.
 ----
 # bad
 assert("rubocop-minitest" != actual)
-assert(!"rubocop-minitest" == (actual))
 
 # good
 refute_equal("rubocop-minitest", actual)
