@@ -272,7 +272,7 @@ assert_operator(expected, :<, actual)
 
 === Refute Operator [[refute-operator]]
 
-Use `refute_operator` if expecting expected object is not binary operator of the actual object. Assertion passes if the expected object is not binary operator(example: greater than) the actual object.
+Use `refute_operator` if expecting expected object is not binary operator of the actual object. Assertion passes if the expected object is not binary operator (example: greater than) the actual object.
 
 [source,ruby]
 ----
@@ -433,6 +433,7 @@ Prefer `assert_instance_of(class, object)` over `assert(object.instance_of?(clas
 ----
 # bad
 assert('rubocop-minitest'.instance_of?(String))
+
 # good
 assert_instance_of(String, 'rubocop-minitest')
 ----
@@ -445,6 +446,7 @@ Prefer `refute_instance_of(class, object)` over `refute(object.instance_of?(clas
 ----
 # bad
 refute('rubocop-minitest'.instance_of?(String))
+
 # good
 refute_instance_of(String, 'rubocop-minitest')
 ----
@@ -457,6 +459,7 @@ Prefer `assert_kind_of(class, object)` over `assert(object.kind_of?(class))`.
 ----
 # bad
 assert('rubocop-minitest'.kind_of?(String))
+
 # good
 assert_kind_of(String, 'rubocop-minitest')
 ----
@@ -469,6 +472,7 @@ Prefer `refute_kind_of(class, object)` over `refute(object.kind_of?(class))`.
 ----
 # bad
 refute('rubocop-minitest'.kind_of?(String))
+
 # good
 refute_kind_of(String, 'rubocop-minitest')
 ----
@@ -519,9 +523,7 @@ If using a module containing `setup` or `teardown` methods, be sure to call `sup
 
 [source,ruby]
 ----
-
 # bad
-
 class TestMeme < Minitest::Test
   include MyHelper
 
@@ -535,7 +537,6 @@ class TestMeme < Minitest::Test
 end
 
 # good
-
 class TestMeme < Minitest::Test
   include MyHelper
 
@@ -557,16 +558,13 @@ Order hooks in the order in which they will be executed.
 
 [source,ruby]
 ----
-
 # bad
-
 class SomethingTest < Minitest::Test
   def teardown; end
   def setup; end
 end
 
 # good
-
 class SomethingTest < Minitest::Test
   def setup; end
   def teardown; end
@@ -580,9 +578,7 @@ They are not meant to be used by test developers.
 
 [source,ruby]
 ----
-
 # bad
-
 class SomethingTest < Minitest::Test
   def before_setup; end
   def before_teardown; end
@@ -591,7 +587,6 @@ class SomethingTest < Minitest::Test
 end
 
 # good
-
 class SomethingTest < Minitest::Test
   def setup; end
   def teardown; end
@@ -604,16 +599,13 @@ Prefer `skip` over `return` for skipping runnable methods that start with `test_
 
 [source,ruby]
 ----
-
 # bad
-
 def test_something
   return if condition?
   assert_equal(42, something)
 end
 
 # good
-
 def test_something
   skip if condition?
   assert_equal(42, something)
@@ -635,7 +627,6 @@ Minitest includes `minitest/mock`, a simple mock/stub system.
 [source,ruby]
 ----
 # example
-
 service = Minitest::Mock.new
 service.expect(:execute, true)
 ----
@@ -645,7 +636,6 @@ A common alternative is https://github.com/freerange/mocha[Mocha].
 [source,ruby]
 ----
 # example
-
 service = mock
 service.expects(:execute).returns(true)
 ----
@@ -660,7 +650,6 @@ causing Minitest to run the parent's tests twice.
 [source,ruby]
 ----
 # bad (unless multiple runs are the intended behavior)
-
 class ParentTest < Minitest::Test
   def test_1
     #... Run twice
