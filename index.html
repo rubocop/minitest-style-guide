@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.20">
+<meta name="generator" content="Asciidoctor 2.0.22">
 <title>Minitest Style Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -140,7 +140,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #content::before{content:none}
 #header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
 #header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
-#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
 #header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
 #header .details span:first-child{margin-left:-.125em}
 #header .details span.email a{color:rgba(0,0,0,.85)}
@@ -162,6 +162,7 @@ p a>code:hover{color:rgba(0,0,0,.9)}
 #toctitle{color:#7a2518;font-size:1.2em}
 @media screen and (min-width:768px){#toctitle{font-size:1.375em}
 body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
 #toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
 #toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
 #toc.toc2>ul{font-size:.9em;margin-bottom:0}
@@ -327,7 +328,7 @@ a.image{text-decoration:none;display:inline-block}
 a.image object{pointer-events:none}
 sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
 sup.footnote a,sup.footnoteref a{text-decoration:none}
-sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
 #footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
 #footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
 #footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
@@ -1071,7 +1072,7 @@ Use <code>refute_same</code> only when there is a need to compare by identity. O
 <div class="sect2">
 <h3 id="refute-operator"><a class="anchor" href="#refute-operator"></a><a class="link" href="#refute-operator">Refute Operator</a></h3>
 <div class="paragraph">
-<p>Use <code>refute_operator</code> if expecting expected object is not binary operator of the actual object. Assertion passes if the expected object is not binary operator(example: greater than) the actual object.</p>
+<p>Use <code>refute_operator</code> if expecting expected object is not binary operator of the actual object. Assertion passes if the expected object is not binary operator (example: greater than) the actual object.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1254,6 +1255,7 @@ error message when assertion fails.</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
 <span class="n">assert</span><span class="p">(</span><span class="s1">'rubocop-minitest'</span><span class="p">.</span><span class="nf">instance_of?</span><span class="p">(</span><span class="no">String</span><span class="p">))</span>
+
 <span class="c1"># good</span>
 <span class="n">assert_instance_of</span><span class="p">(</span><span class="no">String</span><span class="p">,</span> <span class="s1">'rubocop-minitest'</span><span class="p">)</span></code></pre>
 </div>
@@ -1268,6 +1270,7 @@ error message when assertion fails.</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
 <span class="n">refute</span><span class="p">(</span><span class="s1">'rubocop-minitest'</span><span class="p">.</span><span class="nf">instance_of?</span><span class="p">(</span><span class="no">String</span><span class="p">))</span>
+
 <span class="c1"># good</span>
 <span class="n">refute_instance_of</span><span class="p">(</span><span class="no">String</span><span class="p">,</span> <span class="s1">'rubocop-minitest'</span><span class="p">)</span></code></pre>
 </div>
@@ -1282,6 +1285,7 @@ error message when assertion fails.</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
 <span class="n">assert</span><span class="p">(</span><span class="s1">'rubocop-minitest'</span><span class="p">.</span><span class="nf">kind_of?</span><span class="p">(</span><span class="no">String</span><span class="p">))</span>
+
 <span class="c1"># good</span>
 <span class="n">assert_kind_of</span><span class="p">(</span><span class="no">String</span><span class="p">,</span> <span class="s1">'rubocop-minitest'</span><span class="p">)</span></code></pre>
 </div>
@@ -1296,6 +1300,7 @@ error message when assertion fails.</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
 <span class="n">refute</span><span class="p">(</span><span class="s1">'rubocop-minitest'</span><span class="p">.</span><span class="nf">kind_of?</span><span class="p">(</span><span class="no">String</span><span class="p">))</span>
+
 <span class="c1"># good</span>
 <span class="n">refute_kind_of</span><span class="p">(</span><span class="no">String</span><span class="p">,</span> <span class="s1">'rubocop-minitest'</span><span class="p">)</span></code></pre>
 </div>
@@ -1368,7 +1373,6 @@ This section is currently a stub. Contributions welcome!
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
-
 <span class="k">class</span> <span class="nc">TestMeme</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
   <span class="kp">include</span> <span class="no">MyHelper</span>
 
@@ -1382,7 +1386,6 @@ This section is currently a stub. Contributions welcome!
 <span class="k">end</span>
 
 <span class="c1"># good</span>
-
 <span class="k">class</span> <span class="nc">TestMeme</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
   <span class="kp">include</span> <span class="no">MyHelper</span>
 
@@ -1407,14 +1410,12 @@ This section is currently a stub. Contributions welcome!
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
-
 <span class="k">class</span> <span class="nc">SomethingTest</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
   <span class="k">def</span> <span class="nf">teardown</span><span class="p">;</span> <span class="k">end</span>
   <span class="k">def</span> <span class="nf">setup</span><span class="p">;</span> <span class="k">end</span>
 <span class="k">end</span>
 
 <span class="c1"># good</span>
-
 <span class="k">class</span> <span class="nc">SomethingTest</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
   <span class="k">def</span> <span class="nf">setup</span><span class="p">;</span> <span class="k">end</span>
   <span class="k">def</span> <span class="nf">teardown</span><span class="p">;</span> <span class="k">end</span>
@@ -1431,7 +1432,6 @@ They are not meant to be used by test developers.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
-
 <span class="k">class</span> <span class="nc">SomethingTest</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
   <span class="k">def</span> <span class="nf">before_setup</span><span class="p">;</span> <span class="k">end</span>
   <span class="k">def</span> <span class="nf">before_teardown</span><span class="p">;</span> <span class="k">end</span>
@@ -1440,7 +1440,6 @@ They are not meant to be used by test developers.</p>
 <span class="k">end</span>
 
 <span class="c1"># good</span>
-
 <span class="k">class</span> <span class="nc">SomethingTest</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
   <span class="k">def</span> <span class="nf">setup</span><span class="p">;</span> <span class="k">end</span>
   <span class="k">def</span> <span class="nf">teardown</span><span class="p">;</span> <span class="k">end</span>
@@ -1456,14 +1455,12 @@ They are not meant to be used by test developers.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad</span>
-
 <span class="k">def</span> <span class="nf">test_something</span>
   <span class="k">return</span> <span class="k">if</span> <span class="n">condition?</span>
   <span class="n">assert_equal</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">something</span><span class="p">)</span>
 <span class="k">end</span>
 
 <span class="c1"># good</span>
-
 <span class="k">def</span> <span class="nf">test_something</span>
   <span class="n">skip</span> <span class="k">if</span> <span class="n">condition?</span>
   <span class="n">assert_equal</span><span class="p">(</span><span class="mi">42</span><span class="p">,</span> <span class="n">something</span><span class="p">)</span>
@@ -1496,7 +1493,6 @@ They are not meant to be used by test developers.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># example</span>
-
 <span class="n">service</span> <span class="o">=</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Mock</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">service</span><span class="p">.</span><span class="nf">expect</span><span class="p">(</span><span class="ss">:execute</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span></code></pre>
 </div>
@@ -1507,7 +1503,6 @@ They are not meant to be used by test developers.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># example</span>
-
 <span class="n">service</span> <span class="o">=</span> <span class="n">mock</span>
 <span class="n">service</span><span class="p">.</span><span class="nf">expects</span><span class="p">(</span><span class="ss">:execute</span><span class="p">).</span><span class="nf">returns</span><span class="p">(</span><span class="kp">true</span><span class="p">)</span></code></pre>
 </div>
@@ -1527,7 +1522,6 @@ causing Minitest to run the parent&#8217;s tests twice.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="ruby"><span class="c1"># bad (unless multiple runs are the intended behavior)</span>
-
 <span class="k">class</span> <span class="nc">ParentTest</span> <span class="o">&lt;</span> <span class="no">Minitest</span><span class="o">::</span><span class="no">Test</span>
   <span class="k">def</span> <span class="nf">test_1</span>
     <span class="c1">#... Run twice</span>
@@ -1637,7 +1631,7 @@ And we want to have the best possible guide, don&#8217;t we?</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-12-11 09:39:38 UTC
+Last updated 2024-04-22 12:55:33 UTC
 </div>
 </div>
 </body>
